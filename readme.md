@@ -1,4 +1,4 @@
-# Work In Progress!
+# Work In Progress. Nothing works yet. Proceed with Caution!
 
 # EmptyEpsilon Online RPG
 
@@ -18,12 +18,12 @@ Create a dedicated server using the following command for your Operating System:
 
 **Linux** (You can create a shell script or a Desktop icon for this)
 ```
-./EmptyEpsilon httpserver=8080 dedicated=1
+./EmptyEpsilon httpserver=8080 headless=scenario_99_online.lua
 ```
 
 **Windows** (You can create a shortcut or a batch file for this)
 ```
-EmptyEpsilon.exe httpserver=8080 dedicated=1
+EmptyEpsilon.exe httpserver=8080 headless=scenario_99_online.lua
 ```
 
 ## Other setup

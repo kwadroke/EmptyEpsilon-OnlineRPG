@@ -1,0 +1,6 @@
+
+exec.lua
+
+Post:
+player = PlayerSpaceship():setFaction("Human Navy"):setTemplate("Player Cruiser"):setCallSign("Epsilon")
+
