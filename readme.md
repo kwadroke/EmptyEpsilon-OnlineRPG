@@ -1,3 +1,5 @@
+# Work In Progress!
+
 # EmptyEpsilon Online RPG
 
 This is a collection of scripts for creating an Internet based Role Play Game. There is no victory and player ships can come & go. Servers should be reset for updates and universe resets to recreate destroyed objects occassionally.
