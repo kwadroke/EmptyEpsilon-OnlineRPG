@@ -111,9 +111,16 @@ function init()
       currentmission=-1
       lastmission=-1
       missioncomplete=-1
+      currenttime=0
+      lastmissionstarttime=0
+      
+      
     
     -- Constants, do not change except to add new features
     maxmissions=10
+    enemyrangewarning=5000
+    underattackmessage= "Mayday! Mayday! \n We are under attack! Please assist!"
+    newmissionstarttime=30
     
 end
 
@@ -145,7 +152,7 @@ function chooserandommission(delta)
   -- update trackers
   lastmission=currentmission
   currentmission=missionnumber
-  
+  print("Current Mission is number: ".. currentmission)
   if missionnumber == 0 then
     Script():run("online_scenario_quiet_1.lua")
   else if missionnumber == 1 then
@@ -168,18 +175,61 @@ function chooserandommission(delta)
     Script():run("online_scenario_traitor_1.lua")
   else if missionnumber == 10 then
     Script():run("online_scenario_escort_1.lua")
-  -- Add new missions here (change maxmissions)
+  -- Add new missions here (change maxmissions value)
   else
     Script():run("online_scenario_quiet_1.lua")
   end
   
 end
 
+
+function startmission(delta)
+  lastmissionstarttime=currenttime
+  curplayercount = getPlayerShip(-1)
+  if curplayercount != nil then
+    if missioncomplete == 1 then
+      -- Start a new mission, since there is a player ship
+      print("Choosing Mission...")
+      chooserandommission(delta)
+    end
+  else
+    print("No player ships, not starting mission")
+  end
+end
+
+function setenemiesidle(delta)
+  -- Setting all enemies idle so they won't attack unless they are too close to a enemy
+
+end
+
 function update(delta)
-  -- Do not put victory in this script!
+  -- Do not put victory in this script or any child scripts!
+  -- The server should always be running.
+  
+  --Keeping track of time
+  currenttime=currenttime + delta
+  
+  -- If 2 minutes after start, begin mission
+  if currenttime == (60 * 2)  then 
+    startmission()
+  end
   
   -- Every 30 minutes (give or take) start new scenario
-  chooserandommission(delta)
+  if missioncomplete == 1 then
+    if currenttime == (lastmissionstarttime + (60 * newmissionstarttime))  then 
+      startmission()
+    end
+  end
+  
+  -- check for playership creation time and see if it moved in 90 seconds
+  -- If not, destroy()
+  -- Need to handle empty ships for disconnections
+  playercount = getPlayerShip(-1)
+  if playercount == nil then
+    -- Pause 
+  else 
+    -- Don't pause/Unpause
+  end
   
   
 end

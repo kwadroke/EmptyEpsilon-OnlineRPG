@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="us">
+<head>
+	<meta charset="utf-8">
+	<title>EmptyEpsilon</title>
+</head>
+<body>
+<textarea id="script" style="width: 400px; height: 400px">player = getPlayerShip(-1)
+if player == nil then PlayerSpaceship():setFaction("Human Navy"):setTemplate("Player Cruiser"):setCallSign("Epsilon") return {error = "No ship. Epsilon Created"} end
+return {hull = player:getHull() / player:getHullMax()}
+</textarea>
+<button onclick="send()">Send</button>
+<div id="output"></div>
+
+<script src="https://code.jquery.com/jquery-1.12.1.min.js"></script>
+<script>
+function send()
+{
+	$.post('exec.lua', $("#script").val(), function(data) {
+		$("#output").text(JSON.stringify(data));
+	}, "json")
+	.fail(function(x, y, reason) {
+		$("#output").text("FAIL "+reason);
+	});
+}
+</script>
+</body>
+</html>
