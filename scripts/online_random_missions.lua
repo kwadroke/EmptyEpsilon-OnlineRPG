@@ -34,29 +34,29 @@ end
 
 function mission0(delta)
   -- type: Destroy Kraylors
-
-
+  -- description: Kraylors are heading to attack a transport ship thought to be carrying weapons. Destroy attackers before ship is destroyed.
+  -- at end of mission: gain rep
 end
 
 function mission1(delta)
   -- type: Escort damaged ship
-  -- description: If too far away from damaged ship mission failed
-  -- at end of mission: 
+  -- description: Stay within 4u of damaged ship. If too far away from damaged ship mission failed.
+  -- at end of mission: gain rep
 
 end
 
 
 function mission2(delta)
   -- type: Science
-  -- description: Scan some nebula
-  -- at end of mission: 
+  -- description: Scan some nebula, chance enemies may be hidden with in.
+  -- at end of mission: gain rep
 end
 
 
 function mission3(delta)
   -- type: Delivery
   -- description: go from base to base to deliver supplies. Homings, Nukes, EMPs, Mines & tubes removed to make space. 
-  -- at end of mission: restore weapons & tubes to max
+  -- at end of mission: restore weapons & tubes to max. gain rep - increase Homing capacity by 1.
 
 end
 
@@ -64,7 +64,7 @@ end
 function mission4(delta)
   -- type: Spy
   -- description: 
-  -- at end of mission: 
+  -- at end of mission: gain rep
 
 end
 
@@ -72,15 +72,15 @@ end
 function mission5(delta)
   -- type: Destroy Ghosts
   -- description: 
-  -- at end of mission: 
+  -- at end of mission: +1 to EMP
 
 end
 
 
 function mission6(delta)
   -- type: VIP
-  -- description: 
-  -- at end of mission: 
+  -- description: Go to base where VIP is located, escort VIP ship to another base. 
+  -- at end of mission: gain rep
 
 end
 
@@ -107,6 +107,6 @@ end
 
 function mission10(delta)
   -- type: Destroy Traitors
-  -- description: 
-  -- at end of mission: 
+  -- description: A friendly ship destroys another friendly. You must destroy the traitor ship. They will run and you must chase. Traitors will try to convince you to change sides.
+  -- at end of mission: gain rep, +1 to mines
 end
